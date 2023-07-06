@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const clientsPath = path.join(__dirname, '../data/client.json');
+const clientsPath = path.join(__dirname, '../data/clients.json');
 
 const client = {
     filename: clientsPath,
@@ -24,17 +24,6 @@ const client = {
         }
         return assignedId;
     },
-    findByPk: function (id) {
-        let allClients = this.findAll();
-        let clientFound = allClients.find(client => client.id === id);
-        return clientFound;
-    },
-
-    findByField: function (field, text) {
-        let allClients = this.findAll();
-        let clientFound = allClients.find(client => client[field] === text);
-        return clientFound;
-    },
     create: function (clientData) {
         let allClients = this.findAll();
         let newClient = {
@@ -50,7 +39,18 @@ const client = {
         let finalClients = allClients.filter(client => client.id !== id);
         fs.writeFileSync(this.filename, JSON.stringify(finalClients, null, ' '));
         return true;
-    }
+    },
+    findByPk: function (id) {
+        let allClients = this.findAll();
+        let clientFound = allClients.find(client => client.id === id);
+        return clientFound;
+    },
+
+    findByField: function (field, text) {
+        let allClients = this.findAll();
+        let clientFound = allClients.find(client => client[field] === text);
+        return clientFound;
+    },
 }
 
 module.exports = client;

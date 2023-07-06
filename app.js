@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const mainRouter = require('./src/routes/main');
-const clientRouter = require('./src/routes/users');
+const clientRouter = require('./src/routes/clients');
 
 const methodOverride =  require('method-override');
 const { post } = require('./src/routes/main');

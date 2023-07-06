@@ -5,14 +5,14 @@
     <%- include('../partials/headerUser.ejs') %>
     <main class="main">
         <section class="form">
-            <form action="/users/edit/<%= personalizacionFound.id %>?_method=PUT" method="post" id="register">
+            <form action="/admin/edit/<%= clientFound.id %>?_method=PUT" method="post" id="register">
                 <h3> editar </h3>
                 <div id="container-splashPersonalizado" class="container-cambios">
                     <p>Splash</p>
                     <label for="backgroundImageSplash">Seleccionar Splash</label>
                     <br>
                     <select name="backgroundImageSplash" id="backgroundImageSplash">
-                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
                         <% companies.forEach(c => { %>
                             <option value="<%= c.value %>"> <%= c.value %> </option>
                         <% }) %>
@@ -23,7 +23,7 @@
                     <label for="backgroundImageBackground">Seleccionar Background </label>
                     <br>
                     <select name="backgroundImageBackground" id="backgroundImageBackground">
-                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
                         <% companies.forEach(c => { %>
                             <option value="<%= c.value %>"> <%= c.value %> </option>
                         <% }) %>                       
@@ -34,7 +34,7 @@
                     <label for="contentLogo">Seleccionar Logo</label>
                     <br>
                     <select name="contentLogo" id="contentLogo">
-                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
                         <% companies.forEach(c => { %>
                             <option value="<%= c.value %>"> <%= c.value %> </option>
                         <% }) %> 
@@ -43,7 +43,7 @@
                     <label for="widthLogo">Seleccionar Tamaño Logo</label>
                     <br>
                     <select name="widthLogo" id="widthLogo">
-                        <option value="<%= personalizacionFound.personalizacion[".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.personalizacion[".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
                         <% size.forEach(s => { %>
                             <option value="<%= s.value %>"> <%= s.value %> </option>
                         <% }) %> 
@@ -54,7 +54,7 @@
                     <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
                     <br>
                     <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
-                        <option value="<%= personalizacionFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
                         <% positioning.forEach(p => { %>
                             <option value="<%= p.value %>"> <%= p.name %> </option>
                         <% }) %> 
@@ -65,7 +65,7 @@
                     <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
                     <br>
                     <select name="displayContenedorHora" id="displayContenedorHora">
-                        <option value="<%= personalizacionFound.personalizacion[".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound.personalizacion[".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
                         <% visibility.forEach(v => { %>
                             <option value="<%= v.value %>"> <%= v.name %> </option>
                         <% }) %> 
@@ -79,7 +79,7 @@
                         type="text" 
                         name="colorTema" 
                         id="colorTema"
-                        value="<%= personalizacionFound.personalizacion[".temaPersonalizado"]["color"] %>"
+                        value="<%= clientFound.personalizacion[".temaPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorTema">Background Tema</label>
@@ -88,7 +88,7 @@
                         type="text" 
                         name="backgroundColorTema" 
                         id="backgroundColorTema"
-                        value="<%= personalizacionFound.personalizacion[".temaPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound.personalizacion[".temaPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-botonDeAnunciosPersonalizado" class="container-cambios">
@@ -99,7 +99,7 @@
                         type="text" 
                         name="colorBotonDeAnuncios" 
                         id="colorBotonDeAnuncios"
-                        value="<%= personalizacionFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
@@ -108,7 +108,7 @@
                         type="text" 
                         name="backgroundColorBotonDeAnuncios" 
                         id="backgroundColorBotonDeAnuncios"
-                        value="<%= personalizacionFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios">
@@ -119,7 +119,7 @@
                         type="text" 
                         name="colorLetraAnuncios" 
                         id="colorLetraAnuncios"
-                        value="<%= personalizacionFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] %>"
                     >
                 </div>
                 <div class="login edition">
