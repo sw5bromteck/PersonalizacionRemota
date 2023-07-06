@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs', {name, title}) %>
+<body class="container-main">
+    <%- include('../partials/headerUser.ejs') %>
+    <main class="main">
+        <section class="form">
+            <form action="/users/edit/<%= personalizacionFound.id %>?_method=PUT" method="post" id="register">
+                <h3> editar </h3>
+                <div id="container-splashPersonalizado" class="container-cambios">
+                    <p>Splash</p>
+                    <label for="backgroundImageSplash">Seleccionar Splash</label>
+                    <br>
+                    <select name="backgroundImageSplash" id="backgroundImageSplash">
+                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <% companies.forEach(c => { %>
+                            <option value="<%= c.value %>"> <%= c.value %> </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div id="container-backgroundPersonalizado" class="container-cambios">
+                    <p>Background</p>
+                    <label for="backgroundImageBackground">Seleccionar Background </label>
+                    <br>
+                    <select name="backgroundImageBackground" id="backgroundImageBackground">
+                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <% companies.forEach(c => { %>
+                            <option value="<%= c.value %>"> <%= c.value %> </option>
+                        <% }) %>                       
+                    </select>
+                </div>
+                <div id="container-logoPersonalizado" class="container-cambios">
+                    <p>Logo</p>
+                    <label for="contentLogo">Seleccionar Logo</label>
+                    <br>
+                    <select name="contentLogo" id="contentLogo">
+                        <option value="<%= personalizacionFound.company %>"> Seleccionar.. </option>
+                        <% companies.forEach(c => { %>
+                            <option value="<%= c.value %>"> <%= c.value %> </option>
+                        <% }) %> 
+                    </select>
+                    <br>
+                    <label for="widthLogo">Seleccionar Tamaño Logo</label>
+                    <br>
+                    <select name="widthLogo" id="widthLogo">
+                        <option value="<%= personalizacionFound.personalizacion[".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
+                        <% size.forEach(s => { %>
+                            <option value="<%= s.value %>"> <%= s.value %> </option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <div id="container-contenedorLogoPersonalizado" class="container-cambios">
+                    <p>Contenedor Logo</p>
+                    <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
+                    <br>
+                    <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
+                        <option value="<%= personalizacionFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
+                        <% positioning.forEach(p => { %>
+                            <option value="<%= p.value %>"> <%= p.name %> </option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <div id="container-contenedorHoraPersonalizado" class="container-cambios">
+                    <p>Contenedor Hora</p>
+                    <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
+                    <br>
+                    <select name="displayContenedorHora" id="displayContenedorHora">
+                        <option value="<%= personalizacionFound.personalizacion[".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
+                        <% visibility.forEach(v => { %>
+                            <option value="<%= v.value %>"> <%= v.name %> </option>
+                        <% }) %> 
+                    </select>
+                </div>
+                <div id="container-temaPersonalizado" class="container-cambios">
+                    <p>Tema</p>
+                    <label for="colorTema">Color Tema</label>
+                    <input 
+                        class="input-padding form-control input-border-initial" 
+                        type="text" 
+                        name="colorTema" 
+                        id="colorTema"
+                        value="<%= personalizacionFound.personalizacion[".temaPersonalizado"]["color"] %>"
+                    >
+                    <br>
+                    <label for="backgroundColorTema">Background Tema</label>
+                    <input 
+                        class="input-padding form-control input-border-initial" 
+                        type="text" 
+                        name="backgroundColorTema" 
+                        id="backgroundColorTema"
+                        value="<%= personalizacionFound.personalizacion[".temaPersonalizado"]["background-color"] %>"
+                    >
+                </div>
+                <div id="container-botonDeAnunciosPersonalizado" class="container-cambios">
+                    <p>Boton Anuncios</p>
+                    <label for="colorBotonDeAnuncios">Color Boton Anuncios</label>
+                    <input 
+                        class="input-padding form-control input-border-initial" 
+                        type="text" 
+                        name="colorBotonDeAnuncios" 
+                        id="colorBotonDeAnuncios"
+                        value="<%= personalizacionFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] %>"
+                    >
+                    <br>
+                    <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
+                    <input 
+                        class="input-padding form-control input-border-initial" 
+                        type="text" 
+                        name="backgroundColorBotonDeAnuncios" 
+                        id="backgroundColorBotonDeAnuncios"
+                        value="<%= personalizacionFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] %>"
+                    >
+                </div>
+                <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios">
+                    <p>Letra Anuncios</p>
+                    <label for="colorLetraAnuncios">Color Letra Anuncios</label>
+                    <input 
+                        class="input-padding form-control input-border-initial" 
+                        type="text" 
+                        name="colorLetraAnuncios" 
+                        id="colorLetraAnuncios"
+                        value="<%= personalizacionFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] %>"
+                    >
+                </div>
+                <div class="login edition">
+                    <div>
+                        <button type="submit">subir cambios</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+{
+    "companies": [
+        {
+            "id": "1",
+            "value": "bromteck"
+        },
+        {
+            "id": "2",
+            "value": "cablenet"
+        },
+        {
+            "id": "3",
+            "value": "fotelka"
+        },
+        {
+            "id": "4",
+            "value": "intv"
+        },
+        {
+            "id": "5",
+            "value": "meganet"
+        },
+        {
+            "id": "6",
+            "value": "multiplus"
+        },
+        {
+            "id": "7",
+            "value": "rsogo"
+        },
+        {
+            "id": "8",
+            "value": "telecable"
+        },
+        {
+            "id": "9",
+            "value": "twspeed"
+        },
+        {
+            "id": "10",
+            "value": "vmax"
+        }
+    ],
+    "size": [
+        {
+            "id": "1",
+            "value": "10%"
+        },
+        {
+            "id": "2",
+            "value": "20%"
+        },
+        {
+            "id": "3",
+            "value": "30%"
+        },
+        {
+            "id": "4",
+            "value": "40%"
+        },
+        {
+            "id": "5",
+            "value": "50%"
+        }
+    ],
+    "positioning": [
+        {
+            "id": "1",
+            "value": "start",
+            "name": "Izquierda"
+        },
+        {
+            "id": "2",
+            "value": "center",
+            "name": "Centro"
+        },
+        {
+            "id": "3",
+            "value": "end",
+            "name": "Derecha"
+        }
+    ],
+    "visibility": [
+        {
+            "id": "1",
+            "value": "block",
+            "name": "Mostrar"
+        },
+        {
+            "id": "2",
+            "value": "none",
+            "name": "Ocultar"
+        }
+    ]
+}

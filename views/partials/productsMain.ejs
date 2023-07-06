@@ -1,0 +1,33 @@
+<main class="main">
+    <div class="crear">
+            <h3>productos</h3>
+        <div>
+            <button type="button" class="productEdit">
+                <a href="/products/create">crear</a>
+            </button>
+        </div>
+    </div>
+    <section class="container-products">
+        <% products.forEach(product => { %>
+            <article class="articles">
+                <a href="/products/detail/<%= product.id %>">
+                    <picture>
+                        <img src="/img/products/<%= product.image_primary %>" alt="">
+                    </picture>
+                    <div class="articles-general">
+                        <i class="fa-solid fa-truck-fast envio"></i>
+                        <p>$ <%= product.price %>
+                        </p>
+                        <% if(product.discount > 0) { %>
+                        <p class="descuento"> <%= product.discount %>% OFF
+                        </p>
+                        <% } %>
+                        <strong>
+                            <%= product.name %>
+                        </strong>
+                    </div>
+                </a>
+            </article>
+        <% }) %>
+    </section>
+</main>
