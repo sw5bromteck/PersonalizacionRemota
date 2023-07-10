@@ -42,7 +42,7 @@ const client = {
     },
     findByPk: function (id) {
         let allClients = this.findAll();
-        let clientFound = allClients.find(client => client.id === id);
+        let clientFound = allClients.find(client => client.id == id);
         return clientFound;
     },
 

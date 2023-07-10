@@ -7,39 +7,19 @@
         <section class="form">
             <form action="/admin/edit/<%= clientFound.id %>?_method=PUT" method="post" id="register">
                 <h3> editar </h3>
-                <div id="container-splashPersonalizado" class="container-cambios">
-                    <p>Splash</p>
-                    <label for="backgroundImageSplash">Seleccionar Splash</label>
+                <div id="container-assetsPersonalizado" class="container-cambios">
+                    <p>Splash - Background - Logo</p>
+                    <label for="assetsPersonalizado">Seleccionar Assets Cliente</label>
                     <br>
-                    <select name="backgroundImageSplash" id="backgroundImageSplash">
+                    <select name="assetsPersonalizado" id="assetsPersonalizado">
                         <option value="<%= clientFound.company %>"> Seleccionar.. </option>
                         <% companies.forEach(c => { %>
                             <option value="<%= c.value %>"> <%= c.value %> </option>
                         <% }) %>
                     </select>
                 </div>
-                <div id="container-backgroundPersonalizado" class="container-cambios">
-                    <p>Background</p>
-                    <label for="backgroundImageBackground">Seleccionar Background </label>
-                    <br>
-                    <select name="backgroundImageBackground" id="backgroundImageBackground">
-                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
-                        <% companies.forEach(c => { %>
-                            <option value="<%= c.value %>"> <%= c.value %> </option>
-                        <% }) %>                       
-                    </select>
-                </div>
                 <div id="container-logoPersonalizado" class="container-cambios">
                     <p>Logo</p>
-                    <label for="contentLogo">Seleccionar Logo</label>
-                    <br>
-                    <select name="contentLogo" id="contentLogo">
-                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
-                        <% companies.forEach(c => { %>
-                            <option value="<%= c.value %>"> <%= c.value %> </option>
-                        <% }) %> 
-                    </select>
-                    <br>
                     <label for="widthLogo">Seleccionar Tamaño Logo</label>
                     <br>
                     <select name="widthLogo" id="widthLogo">
