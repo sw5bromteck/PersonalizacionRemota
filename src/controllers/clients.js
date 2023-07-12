@@ -17,22 +17,19 @@ const controller = {
   processCreate: function (req, res) {
 
     let client = req.body.company;
-    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
-    let urlSplash = `${url}splash')`;
-    let urlBackground = `${url}background')`;
-    let urlLogo = `${url}logo')`;
+    let arrayAssets = controller.verificarAssets(client);
 
     let newClient = {
       client,
       "personalizacion": {
         ".splashPersonalizado": {
-         "background-image": urlSplash
+         "background-image": arrayAssets[0]
         },
         ".backgroundPersonalizado": {
-         "background-image": urlBackground
+         "background-image": arrayAssets[1]
         },
         ".logoPersonalizado": {
-         "content": urlLogo,
+         "content": arrayAssets[2],
          "width": "20%"
         },
         ".contenedorLogoPersonalizado": {
@@ -43,7 +40,7 @@ const controller = {
         },
         ".temaPersonalizado": {
          "color": "#fff",
-         "background-color": "#49474c"
+         "background-color": "#000"
         },
         ".botonDeAnunciosPersonalizado": {
          "color": "#fff",
@@ -74,28 +71,12 @@ const controller = {
   },
   update: function (req, res) {
     let clientFound = Client.findByPk(req.params.id);
-
     let client = req.body.assetsPersonalizado;
-    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
-    let urlSplash = `${url}splash')`;
-    let urlBackground = `${url}background')`;
-    let urlLogo = `${url}logo')`;
+    let arrayAssets = controller.verificarAssets(client);
 
-    console.log(urlSplash);
-    console.log(urlBackground);
-    console.log(urlLogo);
-    console.log(req.body.widthLogo);
-    console.log(req.body.justifyContentContenedorLogo);
-    console.log(req.body.displayContenedorHora);
-    console.log(req.body.colorTema);
-    console.log(req.body.backgroundColorTema);
-    console.log(req.body.colorBotonDeAnuncios);
-    console.log(req.body.backgroundColorBotonDeAnuncios);
-    console.log(req.body.colorLetraAnuncios);
-
-    clientFound.personalizacion[".splashPersonalizado"]["background-image"] = urlSplash;
-    clientFound.personalizacion[".backgroundPersonalizado"]["background-image"] = urlBackground;
-    clientFound.personalizacion[".logoPersonalizado"]["content"] = urlLogo;
+    clientFound.personalizacion[".splashPersonalizado"]["background-image"] = arrayAssets[0];
+    clientFound.personalizacion[".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
+    clientFound.personalizacion[".logoPersonalizado"]["content"] = arrayAssets[2];
     clientFound.personalizacion[".logoPersonalizado"]["width"] = req.body.widthLogo;
     clientFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"] = req.body.justifyContentContenedorLogo;
     clientFound.personalizacion[".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
@@ -105,10 +86,16 @@ const controller = {
     clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
     clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
 
-    controller.guardarEnArchivo();
+    Client.update(clientFound);
     res.redirect('/');
   },
-  
+  verificarAssets: function (client) {
+    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
+    let urlSplash = `${url}splash')`;
+    let urlBackground = `${url}background')`;
+    let urlLogo = `${url}logo')`;
+    return [urlSplash, urlBackground, urlLogo];
+  }
 };
 
 module.exports = controller;

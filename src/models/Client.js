@@ -45,12 +45,17 @@ const client = {
         let clientFound = allClients.find(client => client.id == id);
         return clientFound;
     },
-
     findByField: function (field, text) {
         let allClients = this.findAll();
         let clientFound = allClients.find(client => client[field] === text);
         return clientFound;
     },
+    update: function (clientData) {
+        let allClients = this.findAll();
+        let clientFound = allClients.find(client => client.id == clientData.id);
+        allClients[clientFound.id - 1] = clientData;
+        fs.writeFileSync(this.filename, JSON.stringify(allClients, null, ' '));
+    }
 }
 
 module.exports = client;
