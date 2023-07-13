@@ -17,10 +17,12 @@ const controller = {
   processCreate: function (req, res) {
 
     let client = req.body.company;
+    let image = req.file.filename;
     let arrayAssets = controller.verificarAssets(client);
 
     let newClient = {
       client,
+      image,
       "personalizacion": {
         ".splashPersonalizado": {
          "background-image": arrayAssets[0]
@@ -87,6 +89,11 @@ const controller = {
     clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
 
     Client.update(clientFound);
+    res.redirect('/');
+  },
+  delete: function (req, res) {
+    let clientFound = req.params.id;
+    Client.delete(clientFound);
     res.redirect('/');
   },
   verificarAssets: function (client) {

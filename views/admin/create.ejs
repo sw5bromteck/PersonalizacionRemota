@@ -5,7 +5,7 @@
     <%- include('../partials/headerUser.ejs') %>
     <main class="main">
         <section class="form">
-            <form action="/admin/create" method="POST" id="register">
+            <form action="/admin/create" method="POST" id="register" enctype="multipart/form-data">
                 <h3>registrar solicitud</h3>
                 <div id="container-company">
                     <label for="company">Empresa</label>
@@ -16,9 +16,9 @@
                         class="input-padding form-control input-border-initial"
                     >
                 </div>
-                <div id="container-logo">
-                    <label for="logo">Imagen</label>
-                    <input type="file" name="logo" id="logo">
+                <div id="container-image">
+                    <label for="image">Imagen</label>
+                    <input type="file" name="image" id="image">
                 </div>
                 <div class="registrarte">
                     <button type="submit" class="enviar-formulario">Enviar Formulario </button>

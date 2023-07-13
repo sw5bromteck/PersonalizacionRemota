@@ -36,7 +36,7 @@ const client = {
     },
     delete: function (id) {
         let allClients = this.findAll();
-        let finalClients = allClients.filter(client => client.id !== id);
+        let finalClients = allClients.filter(client => client.id != id);
         fs.writeFileSync(this.filename, JSON.stringify(finalClients, null, ' '));
         return true;
     },
