@@ -1,10 +1,8 @@
 const Client = require('../models/Client');
+const Personalization = require('../models/Personalization');
 const valoresEdit = require("../data/valoresEdit.json");
 const fs = require('fs');
 const path = require('path');
-
-let clientFilePath = path.join(__dirname, '../data/clients.json');
-let sections = JSON.parse(fs.readFileSync(clientFilePath, 'utf-8'));
 
 const controller = {
   clients: function (req, res) {
@@ -15,14 +13,61 @@ const controller = {
     res.render('./admin/create', { name: 'create', title: 'AGREGAR' });
   },
   processCreate: function (req, res) {
-
-    let client = req.body.company;
-    let image = req.file.filename;
+    let client = (req.body.company).toLowerCase();
+    let id = Client.generateId();
     let arrayAssets = controller.verificarAssets(client);
+    let newClient = controller.createNewClient(client, req.file.filename);
+    let newPersonalization = controller.personalizationData(id, client, arrayAssets);
+    const carpetaData = path.join(__dirname, '..', 'clients');
 
+    fs.writeFile(`${carpetaData}/${client}.json`, JSON.stringify(newPersonalization), () => {
+      Client.create(newClient);
+      res.redirect('/');
+    });
+  },
+  edit: function (req, res) {
+    let personalizationFound = Client.findByPk(req.params.id);
+    let clientFound = controller.sendToPersonalization(personalizationFound);
+    let clients = Client.findAll();
+    const { size, positioning, visibility } = valoresEdit;
+    res.render('./admin/edit', { clientFound, clients, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
+  },
+  update: function (req, res) {
+    let personalizationFound = Client.findByPk(req.params.id);
+    let clientFound = controller.sendToPersonalization(personalizationFound);
+    let arrayAssets = controller.verificarAssets(req.body.assetsPersonalizado);
+
+    controller.personalizationUpdate(req, clientFound, arrayAssets);
+    Personalization.personalization.update(clientFound);
+    res.redirect('/');
+  },
+  delete: function (req, res) {
+    let clientFound = Client.findByPk(req.params.id);
+    Client.delete(req.params.id);
+    Personalization.personalization.delete(clientFound);
+    res.redirect('/');
+  },
+  verificarAssets: function (client) {
+    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
+    let urlSplash = `${url}splash')`;
+    let urlBackground = `${url}background')`;
+    let urlLogo = `${url}logo')`;
+    return [urlSplash, urlBackground, urlLogo];
+  },
+  createNewClient: function (client, image) {
     let newClient = {
       client,
       image,
+    }
+    return newClient;
+  },
+  sendToPersonalization: function (client) {
+    return Personalization.personalization.personalizationFound(client);
+  },
+  personalizationData: function (id, client, arrayAssets) {
+    return {
+      id,
+      client,
       "personalizacion": {
         ".splashPersonalizado": {
          "background-image": arrayAssets[0]
@@ -53,29 +98,8 @@ const controller = {
         }
        }
     }
-    // newClient.image = req.file;
-    Client.create(newClient);
-    res.redirect('/');
   },
-  guardarEnArchivo: () => {
-		let personalizacionJSON = JSON.stringify(sections);
-		fs.writeFileSync(clientFilePath, personalizacionJSON);
-	},
-  edit: function (req, res) {
-    let clientFound = Client.findByPk(req.params.id);
-
-    const companies = valoresEdit.companies;
-    const size = valoresEdit.size;
-    const positioning = valoresEdit.positioning;
-    const visibility = valoresEdit.visibility;
-
-    res.render('./admin/edit', { clientFound, companies, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
-  },
-  update: function (req, res) {
-    let clientFound = Client.findByPk(req.params.id);
-    let client = req.body.assetsPersonalizado;
-    let arrayAssets = controller.verificarAssets(client);
-
+  personalizationUpdate: function (req, clientFound, arrayAssets) {
     clientFound.personalizacion[".splashPersonalizado"]["background-image"] = arrayAssets[0];
     clientFound.personalizacion[".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
     clientFound.personalizacion[".logoPersonalizado"]["content"] = arrayAssets[2];
@@ -87,21 +111,6 @@ const controller = {
     clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] = req.body.colorBotonDeAnuncios;
     clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
     clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
-
-    Client.update(clientFound);
-    res.redirect('/');
-  },
-  delete: function (req, res) {
-    let clientFound = req.params.id;
-    Client.delete(clientFound);
-    res.redirect('/');
-  },
-  verificarAssets: function (client) {
-    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
-    let urlSplash = `${url}splash')`;
-    let urlBackground = `${url}background')`;
-    let urlLogo = `${url}logo')`;
-    return [urlSplash, urlBackground, urlLogo];
   }
 };
 

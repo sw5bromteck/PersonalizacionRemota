@@ -12,9 +12,9 @@
                     <label for="assetsPersonalizado">Seleccionar Assets Cliente</label>
                     <br>
                     <select name="assetsPersonalizado" id="assetsPersonalizado">
-                        <option value="<%= clientFound.company %>"> Seleccionar.. </option>
-                        <% companies.forEach(c => { %>
-                            <option value="<%= c.value %>"> <%= c.value %> </option>
+                        <option value="<%= clientFound.client %>"> Seleccionar.. </option>
+                        <% clients.forEach(c => { %>
+                            <option value="<%= c.client %>"> <%= c.client %> </option>
                         <% }) %>
                     </select>
                 </div>
