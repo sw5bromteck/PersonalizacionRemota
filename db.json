@@ -1,35 +1,33 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "hello"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "personalizacion": {
     "id": 1,
     "client": "bromteck",
-    "personalizacion": {
-      ".splashPersonalizado": {
-        "background-image": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/splash')"
-      },
-      ".backgroundPersonalizado": {
-        "background-image": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/background')"
-      },
-      ".logoPersonalizado": {
-        "content": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/logo')",
-        "width": "20%"
-      },
-      ".contenedorLogoPersonalizado": { "justify-content": "start" },
-      ".contenedorHoraPersonalizado": { "display": "block" },
-      ".temaPersonalizado": { "color": "#fff", "background-color": "#000" },
-      ".botonDeAnunciosPersonalizado": {
-        "color": "#fff",
-        "background-color": "#000"
-      },
-      ".colorLetraAnunciosPersonalizado": { "color": "#fff" }
+    ".splashPersonalizado": {
+      "background-image": "url('http://networkbroadcast.servepics.com/Clientes/intv/assets/tv-web-intv/version-01/splash')"
+    },
+    ".backgroundPersonalizado": {
+      "background-image": "url('http://networkbroadcast.servepics.com/Clientes/intv/assets/tv-web-intv/version-01/background')"
+    },
+    ".logoPersonalizado": {
+      "content": "url('http://networkbroadcast.servepics.com/Clientes/intv/assets/tv-web-intv/version-01/logo')",
+      "width": "20%"
+    },
+    ".contenedorLogoPersonalizado": {
+      "justify-content": "start"
+    },
+    ".contenedorHoraPersonalizado": {
+      "display": "block"
+    },
+    ".temaPersonalizado": {
+      "color": "#fff",
+      "background-color": "#49474c"
+    },
+    ".botonDeAnunciosPersonalizado": {
+      "color": "#fff",
+      "background-color": "#000"
+    },
+    ".colorLetraAnunciosPersonalizado": {
+      "color": "#fff"
     }
   }
 }
