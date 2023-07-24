@@ -1,7 +1,7 @@
 {
   "personalizacion": {
     "id": 1,
-    "client": "bromteck",
+    "client": "bromteckTest",
     ".splashPersonalizado": {
       "background-image": "url('http://networkbroadcast.servepics.com/Clientes/intv/assets/tv-web-intv/version-01/splash')"
     },
