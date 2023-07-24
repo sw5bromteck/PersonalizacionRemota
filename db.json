@@ -1,6 +1,6 @@
 {
     "clients": {
-        "bromteck": "/src/clients/bromteck.json",
-        "intv": "/src/clients/intv.json"
+        "bromteck": "https://my-json-server.typicode.com/sw5bromteck/PersonalizacionRemota/src/clients/bromteck.json",
+        "intv": "https://my-json-server.typicode.com/sw5bromteck/PersonalizacionRemota/src/clients/intv"
     }
 }
