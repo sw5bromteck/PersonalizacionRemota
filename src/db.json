@@ -1,4 +1,12 @@
 {
-    "id": 1,
-    "name": "name"
+  "posts": [
+    {
+      "id": 1,
+      "title": "hello"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "test": "en src"
 }
