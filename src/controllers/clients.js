@@ -66,9 +66,9 @@ const controller = {
   },
   personalizationData: function (id, client, arrayAssets) {
     return {
-      id,
-      client,
       "personalizacion": {
+        id,
+        client,
         ".splashPersonalizado": {
          "background-image": arrayAssets[0]
         },
