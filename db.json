@@ -1,4 +1,6 @@
 {
-  "bromteck": "/src/clients/bromteck.json",
-  "intv": "/src/clients/intv.json"
+    "clients": {
+        "bromteck": "/src/clients/bromteck.json",
+        "intv": "/src/clients/intv.json"
+    }
 }
