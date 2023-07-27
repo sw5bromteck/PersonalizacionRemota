@@ -14,7 +14,7 @@ const jsonServer = require('json-server');
 const fs = require('fs');
 const path = require('path');
 const server = jsonServer.create();
-const bromteckRouter = jsonServer.router('./db1.json');
+const bromteckRouter = jsonServer.router('db1.json');
 const intvRouter = jsonServer.router('db2.json');
 const middlewares = jsonServer.defaults();
 
