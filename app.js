@@ -14,6 +14,8 @@ const jsonServer = require('json-server');
 const fs = require('fs');
 const path = require('path');
 const server = jsonServer.create();
+const bromteckRouter = jsonServer.router('./db1.json');
+const intvRouter = jsonServer.router('db2.json');
 const middlewares = jsonServer.defaults();
 
 app.use(express.static('public'));
@@ -23,25 +25,30 @@ app.use(session({secret: 'secret', resave: false, saveUninitialized: false,}));
 app.use(cookieParser());
 app.use(cors());
 
-server.use(middlewares);
-
 app.use('/', mainRouter);
 app.use('/admin', clientRouter);
 
 app.set('view engine', 'ejs');
 
-const clientDataFiles = fs.readdirSync(path.join(__dirname, '/src/clients')).filter((file) => file.endsWith('.json'));
+server.use('/api/db1', bromteckRouter);
+server.use('/api/db2', intvRouter);
 
-clientDataFiles.forEach((file) => {
-    const jsonData = require(path.join(__dirname, '/src/clients', file));
-    const resourceName = path.parse(file).name;
+server.use(middlewares);
 
-    server.get(`/${resourceName}`, (req, res) => {
-        res.json(jsonData);
-    });
-});
+// const clientDataFiles = fs.readdirSync(path.join(__dirname, '/src/clients')).filter((file) => file.endsWith('.json'));
 
-app.listen(3000, () => {
-    console.log('server on');
-    server.listen(3001, () => {});
-});
+// clientDataFiles.forEach((file) => {
+//     const jsonData = require(path.join(__dirname, '/src/clients', file));
+//     const resourceName = path.parse(file).name;
+
+//     server.get(`/${resourceName}`, (req, res) => {
+//         res.json(jsonData);
+//     });
+// });
+
+// app.listen(3000, () => {
+    // console.log('server on');
+    // server.listen(3001, () => {});
+// });
+
+server.listen(3000, () => {});
