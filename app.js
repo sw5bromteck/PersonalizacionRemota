@@ -10,13 +10,11 @@ const methodOverride =  require('method-override');
 const { post } = require('./src/routes/main');
 const cookieParser = require('cookie-parser');
 
-const jsonServer = require('json-server');
+// const jsonServer = require('json-server');
 const fs = require('fs');
 const path = require('path');
-const server = jsonServer.create();
-const bromteckRouter = jsonServer.router('db1.json');
-const intvRouter = jsonServer.router('db2.json');
-const middlewares = jsonServer.defaults();
+// const server = jsonServer.create();
+// const middlewares = jsonServer.defaults();
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
@@ -30,10 +28,7 @@ app.use('/admin', clientRouter);
 
 app.set('view engine', 'ejs');
 
-server.use('/api/db1', bromteckRouter);
-server.use('/api/db2', intvRouter);
-
-server.use(middlewares);
+// server.use(middlewares);
 
 // const clientDataFiles = fs.readdirSync(path.join(__dirname, '/src/clients')).filter((file) => file.endsWith('.json'));
 
@@ -46,9 +41,7 @@ server.use(middlewares);
 //     });
 // });
 
-// app.listen(3000, () => {
-    // console.log('server on');
+app.listen(3000, () => {
+    console.log('server on');
     // server.listen(3001, () => {});
-// });
-
-server.listen(3000, () => {});
+});

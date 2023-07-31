@@ -22,6 +22,7 @@ const controller = {
 
     fs.writeFile(`${carpetaData}/${client}.json`, JSON.stringify(newPersonalization), () => {
       Client.create(newClient);
+      Personalization.personalization.create(newPersonalization);
       res.redirect('/');
     });
   },
@@ -55,18 +56,17 @@ const controller = {
     return [urlSplash, urlBackground, urlLogo];
   },
   createNewClient: function (client, image) {
-    let newClient = {
+    return {
       client,
       image,
-    }
-    return newClient;
+    };
   },
   sendToPersonalization: function (client) {
     return Personalization.personalization.personalizationFound(client);
   },
   personalizationData: function (id, client, arrayAssets) {
     return {
-      "personalizacion": {
+      [client]: {
         id,
         client,
         ".splashPersonalizado": {
