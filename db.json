@@ -16,10 +16,10 @@
       "width": "20%"
      },
      ".contenedorLogoPersonalizado": {
-      "justify-content": "start"
+      "justify-content": "center"
      },
      ".contenedorHoraPersonalizado": {
-      "display": "block"
+      "display": "none"
      },
      ".temaPersonalizado": {
       "color": "#fff",
