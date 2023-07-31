@@ -28,15 +28,16 @@ const controller = {
   },
   edit: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
-    let clientFound = controller.sendToPersonalization(personalizationFound);
-    let company = personalizationFound.client;
+    let clientFound = controller.sendToPersonalization(personalizationFound.id); // Se envie id del cliente
+    let company = clientFound.client;
     let clients = Client.findAll();
     const { size, positioning, visibility } = valoresEdit;
+
     res.render('./admin/edit', { clientFound, company, clients, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
   },
   update: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
-    let clientFound = controller.sendToPersonalization(personalizationFound);
+    let clientFound = controller.sendToPersonalization(personalizationFound.id);
     let arrayAssets = controller.verificarAssets(req.body.assetsPersonalizado);
 
     controller.personalizationUpdate(req, clientFound, arrayAssets);
@@ -62,14 +63,14 @@ const controller = {
       image,
     };
   },
-  sendToPersonalization: function (client) {
-    return Personalization.personalization.personalizationFound(client);
+  sendToPersonalization: function (id) {
+    return Personalization.personalization.personalizationFound(id);
   },
   personalizationData: function (id, client, arrayAssets) {
     return {
+      id,
+      client,
       [client]: {
-        id,
-        client,
         ".splashPersonalizado": {
          "background-image": arrayAssets[0]
         },
@@ -101,17 +102,18 @@ const controller = {
     }
   },
   personalizationUpdate: function (req, clientFound, arrayAssets) {
-    clientFound.personalizacion[".splashPersonalizado"]["background-image"] = arrayAssets[0];
-    clientFound.personalizacion[".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
-    clientFound.personalizacion[".logoPersonalizado"]["content"] = arrayAssets[2];
-    clientFound.personalizacion[".logoPersonalizado"]["width"] = req.body.widthLogo;
-    clientFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"] = req.body.justifyContentContenedorLogo;
-    clientFound.personalizacion[".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
-    clientFound.personalizacion[".temaPersonalizado"]["color"] = req.body.colorTema;
-    clientFound.personalizacion[".temaPersonalizado"]["background-color"] = req.body.backgroundColorTema;
-    clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] = req.body.colorBotonDeAnuncios;
-    clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
-    clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
+    let client = clientFound.client;
+    clientFound[client][".splashPersonalizado"]["background-image"] = arrayAssets[0];
+    clientFound[client][".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
+    clientFound[client][".logoPersonalizado"]["content"] = arrayAssets[2];
+    clientFound[client][".logoPersonalizado"]["width"] = req.body.widthLogo;
+    clientFound[client][".contenedorLogoPersonalizado"]["justify-content"] = req.body.justifyContentContenedorLogo;
+    clientFound[client][".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
+    clientFound[client][".temaPersonalizado"]["color"] = req.body.colorTema;
+    clientFound[client][".temaPersonalizado"]["background-color"] = req.body.backgroundColorTema;
+    clientFound[client][".botonDeAnunciosPersonalizado"]["color"] = req.body.colorBotonDeAnuncios;
+    clientFound[client][".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
+    clientFound[client][".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
   }
 };
 
