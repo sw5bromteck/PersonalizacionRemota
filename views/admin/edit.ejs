@@ -5,7 +5,7 @@
     <%- include('../partials/headerUser.ejs') %>
     <main class="main">
         <section class="form">
-            <form action="/admin/edit/<%= clientFound.id %>?_method=PUT" method="post" id="register">
+            <form action="/admin/edit/<%= clientFound[company].id %>?_method=PUT" method="post" id="register">
                 <h3> editar </h3>
                 <div id="container-assetsPersonalizado" class="container-cambios">
                     <p>Splash - Background - Logo</p>
@@ -23,7 +23,7 @@
                     <label for="widthLogo">Seleccionar Tamaño Logo</label>
                     <br>
                     <select name="widthLogo" id="widthLogo">
-                        <option value="<%= clientFound.personalizacion[".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound[company][".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
                         <% size.forEach(s => { %>
                             <option value="<%= s.value %>"> <%= s.value %> </option>
                         <% }) %> 
@@ -34,7 +34,7 @@
                     <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
                     <br>
                     <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
-                        <option value="<%= clientFound.personalizacion[".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound[company][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
                         <% positioning.forEach(p => { %>
                             <option value="<%= p.value %>"> <%= p.name %> </option>
                         <% }) %> 
@@ -45,7 +45,7 @@
                     <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
                     <br>
                     <select name="displayContenedorHora" id="displayContenedorHora">
-                        <option value="<%= clientFound.personalizacion[".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound[company][".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
                         <% visibility.forEach(v => { %>
                             <option value="<%= v.value %>"> <%= v.name %> </option>
                         <% }) %> 
@@ -59,7 +59,7 @@
                         type="text" 
                         name="colorTema" 
                         id="colorTema"
-                        value="<%= clientFound.personalizacion[".temaPersonalizado"]["color"] %>"
+                        value="<%= clientFound[company][".temaPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorTema">Background Tema</label>
@@ -68,7 +68,7 @@
                         type="text" 
                         name="backgroundColorTema" 
                         id="backgroundColorTema"
-                        value="<%= clientFound.personalizacion[".temaPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound[company][".temaPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-botonDeAnunciosPersonalizado" class="container-cambios">
@@ -79,7 +79,7 @@
                         type="text" 
                         name="colorBotonDeAnuncios" 
                         id="colorBotonDeAnuncios"
-                        value="<%= clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound[company][".botonDeAnunciosPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
@@ -88,7 +88,7 @@
                         type="text" 
                         name="backgroundColorBotonDeAnuncios" 
                         id="backgroundColorBotonDeAnuncios"
-                        value="<%= clientFound.personalizacion[".botonDeAnunciosPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound[company][".botonDeAnunciosPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios">
@@ -99,7 +99,7 @@
                         type="text" 
                         name="colorLetraAnuncios" 
                         id="colorLetraAnuncios"
-                        value="<%= clientFound.personalizacion[".colorLetraAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound[company][".colorLetraAnunciosPersonalizado"]["color"] %>"
                     >
                 </div>
                 <div class="login edition">

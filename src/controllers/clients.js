@@ -29,9 +29,10 @@ const controller = {
   edit: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
     let clientFound = controller.sendToPersonalization(personalizationFound);
+    let company = personalizationFound.client;
     let clients = Client.findAll();
     const { size, positioning, visibility } = valoresEdit;
-    res.render('./admin/edit', { clientFound, clients, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
+    res.render('./admin/edit', { clientFound, company, clients, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
   },
   update: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
