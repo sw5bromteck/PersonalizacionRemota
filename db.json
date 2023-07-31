@@ -3,8 +3,6 @@
   "clients": [
    {
     "bromteck": {
-     "id": 1,
-     "client": "bromteck",
      ".splashPersonalizado": {
       "background-image": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/splash')"
      },
