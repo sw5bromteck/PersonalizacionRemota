@@ -32,15 +32,13 @@ const personalization = {
     },
     delete: function (clientFound) {
         let allClients = this.findAll();
-        let allPersonalizations = allClients.personalizacion.clients;
         let personalization = `../clients/${clientFound.client}.json`;
-        personalizationPath = path.join(__dirname, personalization);
-        fs.unlink(personalizationPath, () => {
-            let personalizationFound = this.findByPk(clientFound.id);
-            allPersonalizations.splice(personalizationFound, 1);
+        let personalizationRemove = path.join(__dirname, personalization);
+        fs.unlink(personalizationRemove, () => {
+            allClients.personalizacion.clients = allClients.personalizacion.clients.filter(personalization => personalization.id != clientFound.id);
             fs.writeFileSync(this.filename, JSON.stringify(allClients, null, ' '));
+            return true;
         });
-        return true;
     },
     update: function (personalizationData) {
         let allClients = this.findAll();

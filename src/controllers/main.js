@@ -3,7 +3,7 @@ const Products = db.product;
 
 const controller = {
     index: function (req, res) {
-        res.render('./admin/index', { title: 'Home' });
+        res.render('./admin/index', { name: 'main', title: 'Home' });
     },
 };
 

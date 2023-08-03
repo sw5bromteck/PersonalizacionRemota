@@ -1,10 +1,10 @@
 <header class="header">
     <picture class="container-logo1">
         <a href="/">
-            <img src="/img/generalImages/logo.png" alt="logo-nodegaming">
+            <img src="/img/generalImages/logo.png" alt="logo-bromteck">
         </a>
     </picture>
-    <div class="container-menu">
+    <!-- <div class="container-menu">
         <i class="fa-solid fa-bars"></i>
         <div>
             <ul class="burguer-menu">
@@ -15,16 +15,8 @@
                 <li><a href="#">AYUDA</a> </li>
             </ul>
         </div>
-    </div>
-    <div class="search-bar">
-        <form action="/search" method="GET">
-            <div>
-                <input type="search" name="keyword" placeholder="Buscar Productos..">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-        </form>
-    </div>
-    <section class="container-access">
+    </div> -->
+    <!-- <section class="container-access">
         <% if (locals.isLogged) { %>
         <div class="user">
                 <img src="/img/users/<%= locals.userLogged.avatar %>" width="20" height="20" style="border-radius: 100%;">
@@ -50,23 +42,14 @@
                 <i class="fa-solid fa-cart-shopping"></i>
             </a>
         </div>
-    </section>
+    </section> -->
     <nav class="nav-bar">
         <ul class="container-list">
-            <a href="/products">
-                <li>productos</li>
+            <a href="/admin/create">
+                <li> registrar cliente </li>
             </a>
-            <a href="/products/category">
-                <li>categorias</li>
-            </a>
-            <a href="#">
-                <li>partners</li>
-            </a>
-            <a href="#">
-                <li>contacto</li>
-            </a>
-            <a href="#">
-                <li>ayuda</li>
+            <a href="/admin/clients">
+                <li> lista clientes </li>
             </a>
         </ul>
     </nav>

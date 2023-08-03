@@ -7,7 +7,7 @@ const path = require('path');
 const controller = {
   clients: function (req, res) {
 		let clients = Client.findAll();
-    res.render('./admin/clients', { clients, name: 'products', title: 'CLIENTES' });
+    res.render('./admin/clients', { clients, name: 'clients', title: 'CLIENTES' });
 	},
   create: function (req, res) {
     res.render('./admin/create', { name: 'create', title: 'AGREGAR' });
@@ -28,7 +28,7 @@ const controller = {
   },
   edit: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
-    let clientFound = controller.sendToPersonalization(personalizationFound.id); // Se envie id del cliente
+    let clientFound = controller.sendToPersonalization(personalizationFound.id);
     let company = clientFound.client;
     let clients = Client.findAll();
     const { size, positioning, visibility } = valoresEdit;
