@@ -23,7 +23,7 @@
                     <label for="widthLogo">Seleccionar Tamaño Logo</label>
                     <br>
                     <select name="widthLogo" id="widthLogo">
-                        <option value="<%= clientFound[company][".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
+                        <option value="<%= clientFound["personalization"][".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
                         <% size.forEach(s => { %>
                             <option value="<%= s.value %>"> <%= s.value %> </option>
                         <% }) %> 
@@ -34,7 +34,7 @@
                     <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
                     <br>
                     <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
-                        <option value="<%= clientFound[company][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
                         <% positioning.forEach(p => { %>
                             <option value="<%= p.value %>"> <%= p.name %> </option>
                         <% }) %> 
@@ -45,7 +45,7 @@
                     <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
                     <br>
                     <select name="displayContenedorHora" id="displayContenedorHora">
-                        <option value="<%= clientFound[company][".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
+                        <option value="<%= clientFound["personalization"][".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
                         <% visibility.forEach(v => { %>
                             <option value="<%= v.value %>"> <%= v.name %> </option>
                         <% }) %> 
@@ -59,7 +59,7 @@
                         type="text" 
                         name="colorTema" 
                         id="colorTema"
-                        value="<%= clientFound[company][".temaPersonalizado"]["color"] %>"
+                        value="<%= clientFound["personalization"][".temaPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorTema">Background Tema</label>
@@ -68,7 +68,7 @@
                         type="text" 
                         name="backgroundColorTema" 
                         id="backgroundColorTema"
-                        value="<%= clientFound[company][".temaPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound["personalization"][".temaPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-botonDeAnunciosPersonalizado" class="container-cambios">
@@ -79,7 +79,7 @@
                         type="text" 
                         name="colorBotonDeAnuncios" 
                         id="colorBotonDeAnuncios"
-                        value="<%= clientFound[company][".botonDeAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["color"] %>"
                     >
                     <br>
                     <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
@@ -88,7 +88,7 @@
                         type="text" 
                         name="backgroundColorBotonDeAnuncios" 
                         id="backgroundColorBotonDeAnuncios"
-                        value="<%= clientFound[company][".botonDeAnunciosPersonalizado"]["background-color"] %>"
+                        value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["background-color"] %>"
                     >
                 </div>
                 <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios">
@@ -99,7 +99,7 @@
                         type="text" 
                         name="colorLetraAnuncios" 
                         id="colorLetraAnuncios"
-                        value="<%= clientFound[company][".colorLetraAnunciosPersonalizado"]["color"] %>"
+                        value="<%= clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] %>"
                     >
                 </div>
                 <div class="login edition">
