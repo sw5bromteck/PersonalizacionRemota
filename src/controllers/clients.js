@@ -87,6 +87,9 @@ const controller = {
         ".contenedorHoraPersonalizado": {
          "display": "block"
         },
+        ".tipografiaPersonalizado": {
+          "font-family": "sans-serif",
+        },
         ".temaPersonalizado": {
          "color": "#fff",
          "background-color": "#000"
@@ -97,9 +100,6 @@ const controller = {
         },
         ".colorLetraAnunciosPersonalizado": {
          "color": "#fff"
-        },
-        ".tipografiaPersonalizado": {
-          "font-family": "sans-serif",
         }
        }
     }
@@ -111,12 +111,12 @@ const controller = {
     clientFound["personalization"][".logoPersonalizado"]["width"] = req.body.widthLogo;
     clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"] = req.body.justifyContentContenedorLogo;
     clientFound["personalization"][".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
+    clientFound["personalization"][".tipografiaPersonalizado"]["font-family"] = req.body.tipografia;
     clientFound["personalization"][".temaPersonalizado"]["color"] = req.body.colorTema;
     clientFound["personalization"][".temaPersonalizado"]["background-color"] = req.body.backgroundColorTema;
     clientFound["personalization"][".botonDeAnunciosPersonalizado"]["color"] = req.body.colorBotonDeAnuncios;
     clientFound["personalization"][".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
     clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
-    clientFound["personalization"][".tipografiaPersonalizado"]["font-family"] = req.body.tipografia;
   }
 };
 
