@@ -31,9 +31,9 @@ const controller = {
     let clientFound = controller.sendToPersonalization(personalizationFound.id);
     let company = clientFound.client;
     let clients = Client.findAll();
-    const { size, positioning, visibility } = valoresEdit;
+    const { size, positioning, visibility, typography } = valoresEdit;
 
-    res.render('./admin/edit', { clientFound, company, clients, size, positioning, visibility, name: 'edit', title : 'EDITAR' });
+    res.render('./admin/edit', { clientFound, company, clients, size, positioning, visibility, typography, name: 'edit', title : 'EDITAR' });
   },
   update: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
@@ -97,6 +97,9 @@ const controller = {
         },
         ".colorLetraAnunciosPersonalizado": {
          "color": "#fff"
+        },
+        ".tipografiaPersonalizado": {
+          "font-family": "sans-serif",
         }
        }
     }

@@ -49,5 +49,27 @@
       "value": "none",
       "name": "Ocultar"
     }
+  ],
+  "typography": [
+    {
+      "id": "1",
+      "value": "Open Sans",
+      "name": "Open Sans" 
+    },
+    {
+      "id": "2",
+      "value": "Roboto",
+      "name": "Roboto" 
+    },
+    {
+      "id": "3",
+      "value": "Courier Prime",
+      "name": "Courier Prime" 
+    },
+    {
+      "id": "4",
+      "value": "Comic Neue",
+      "name": "Comic Neue" 
+    }
   ]
 }
