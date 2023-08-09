@@ -116,6 +116,7 @@ const controller = {
     clientFound["personalization"][".botonDeAnunciosPersonalizado"]["color"] = req.body.colorBotonDeAnuncios;
     clientFound["personalization"][".botonDeAnunciosPersonalizado"]["background-color"] = req.body.backgroundColorBotonDeAnuncios;
     clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] = req.body.colorLetraAnuncios;
+    clientFound["personalization"][".tipografiaPersonalizado"]["font-family"] = req.body.tipografia;
   }
 };
 

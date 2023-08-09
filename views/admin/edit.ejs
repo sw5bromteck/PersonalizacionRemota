@@ -51,6 +51,17 @@
                         <% }) %> 
                     </select>
                 </div>
+                <div id="container-tipografiaPersonalizado" class="container-cambios">
+                    <p>Tipografia</p>
+                    <label for="tipografia">Tipografia Letra</label>
+                    <br>
+                    <select name="tipografia" id="tipografia">
+                        <option value="<%= clientFound["personalization"][".tipografiaPersonalizado"]["font-family"]%>"> Seleccionar.. </option>
+                        <% typography.forEach(t => { %>
+                            <option value="<%= t.value %>"> <%= t.name %> </option>
+                        <% }) %> 
+                    </select>
+                </div>
                 <div id="container-temaPersonalizado" class="container-cambios">
                     <p>Tema</p>
                     <label for="colorTema">Color Tema</label>
@@ -101,17 +112,6 @@
                         id="colorLetraAnuncios"
                         value="<%= clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] %>"
                     >
-                </div>
-                <div id="container-tipografiaPersonalizado" class="container-cambios">
-                    <p>Tipografia</p>
-                    <label for="tipografia">Seleccionar Visibilidad Contenedor Hora</label>
-                    <br>
-                    <select name="tipografia" id="tipografia">
-                        <option value="<%= clientFound["personalization"][".tipografiaPersonalizado"]["font-family"]%>"> Seleccionar.. </option>
-                        <% typography.forEach(t => { %>
-                            <option value="<%= t.value %>"> <%= t.name %> </option>
-                        <% }) %> 
-                    </select>
                 </div>
                 <div class="login edition">
                     <div class="delete">
