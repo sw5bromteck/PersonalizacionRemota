@@ -84,8 +84,11 @@ const controller = {
         ".contenedorLogoPersonalizado": {
          "justify-content": "start"
         },
+        ".logoPersonalizado": {
+          "position": "initial"
+        },
         ".contenedorHoraPersonalizado": {
-         "display": "block"
+         "display": "block",
         },
         ".tipografiaPersonalizado": {
           "font-family": "sans-serif",
@@ -105,11 +108,21 @@ const controller = {
     }
   },
   personalizationUpdate: function (req, clientFound, arrayAssets) {
+    let positioningLogo = req.body.justifyContentContenedorLogo;
+    let position;
+    if (positioningLogo == "preview") {
+      positioningLogo = "start";
+      position = "relative";
+    } else {
+      position = "initial";
+    }
+
     clientFound["personalization"][".splashPersonalizado"]["background-image"] = arrayAssets[0];
     clientFound["personalization"][".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
     clientFound["personalization"][".logoPersonalizado"]["content"] = arrayAssets[2];
     clientFound["personalization"][".logoPersonalizado"]["width"] = req.body.widthLogo;
-    clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"] = req.body.justifyContentContenedorLogo;
+    clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"] = positioningLogo;
+    clientFound["personalization"][".logoPersonalizado"]["position"] = position;
     clientFound["personalization"][".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
     clientFound["personalization"][".tipografiaPersonalizado"]["font-family"] = req.body.tipografia;
     clientFound["personalization"][".temaPersonalizado"]["color"] = req.body.colorTema;

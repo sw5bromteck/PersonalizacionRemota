@@ -34,8 +34,8 @@
     },
     {
       "id": "3",
-      "value": "end",
-      "name": "Derecha"
+      "value": "preview",
+      "name": "En Preview"
     }
   ],
   "visibility": [
