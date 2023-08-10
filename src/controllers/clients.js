@@ -79,13 +79,11 @@ const controller = {
         },
         ".logoPersonalizado": {
          "content": arrayAssets[2],
-         "width": "20%"
+         "width": "20%",
+         "position": "initial"
         },
         ".contenedorLogoPersonalizado": {
          "justify-content": "start"
-        },
-        ".logoPersonalizado": {
-          "position": "initial"
         },
         ".contenedorHoraPersonalizado": {
          "display": "block",
@@ -121,8 +119,8 @@ const controller = {
     clientFound["personalization"][".backgroundPersonalizado"]["background-image"] = arrayAssets[1];
     clientFound["personalization"][".logoPersonalizado"]["content"] = arrayAssets[2];
     clientFound["personalization"][".logoPersonalizado"]["width"] = req.body.widthLogo;
-    clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"] = positioningLogo;
     clientFound["personalization"][".logoPersonalizado"]["position"] = position;
+    clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"] = positioningLogo;
     clientFound["personalization"][".contenedorHoraPersonalizado"]["display"] = req.body.displayContenedorHora;
     clientFound["personalization"][".tipografiaPersonalizado"]["font-family"] = req.body.tipografia;
     clientFound["personalization"][".temaPersonalizado"]["color"] = req.body.colorTema;
