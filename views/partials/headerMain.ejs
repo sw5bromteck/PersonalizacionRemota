@@ -1,6 +1,6 @@
 <header class="header">
     <picture class="container-logo1">
-        <a href="/">
+        <a href="/admin/home">
             <img src="/img/generalImages/logo.png" alt="logo-bromteck">
         </a>
     </picture>
@@ -16,33 +16,6 @@
             </ul>
         </div>
     </div> -->
-    <!-- <section class="container-access">
-        <% if (locals.isLogged) { %>
-        <div class="user">
-                <img src="/img/users/<%= locals.userLogged.avatar %>" width="20" height="20" style="border-radius: 100%;">
-                <ul>
-                    <li><a href="/users/profile">mi perfil</a></li>
-                    <li><a href="/users/logout">cerrar sesion</a></li>
-                </ul>
-        </div>
-        <% } else { %>
-        <div class="user">
-            <i class="fa-solid fa-user"></i>
-            <ul>
-                <li><a href="/users/login">iniciar sesion</a></li>
-                <li><a href="/users/register">registrarse</a></li>
-            </ul>
-        </div>
-        <% } %>
-        <div class="search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class="cart">
-            <a href="/products/cart">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-        </div>
-    </section> -->
     <nav class="nav-bar">
         <ul class="container-list">
             <a href="/admin/create">
@@ -52,5 +25,10 @@
                 <li> lista clientes </li>
             </a>
         </ul>
+        <% if (locals.isLogged) { %>
+        <ul class="container-logout">
+            <li><a href="/admin/logout">cerrar sesion</a></li>
+        </ul>
+        <% }  %>
     </nav>
 </header>

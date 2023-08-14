@@ -1,0 +1,26 @@
+/* ESTILOS LOGIN */
+
+.form form {
+    margin-bottom: 124px;
+}
+.remember {
+    display: flex;
+}
+.remember .remember-user {
+    width: 5%;
+    height: 0;
+    margin-right: 10px;
+}
+.remember .remember-user input {
+    height: 20px;
+}
+.recuperar {
+    text-align: center;
+}
+.recuperar a {
+    text-decoration: none;
+    color: #000000;
+}
+.recuperar a:hover {
+    color: #255688;
+}

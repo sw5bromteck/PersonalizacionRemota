@@ -20,16 +20,13 @@
     background-color: #255688;
 }
 .user ul {
-    display: none;
-    position: absolute;
+    width: 40%;
     list-style: none;
 }
 .user:hover ul {
     display: block;
     text-transform: uppercase;
-    background-color: #000000;
     text-align: center;
-    width: 40%;
     font-size: 10px;
     margin-left: -20px;
     margin-top: 6px;
@@ -51,6 +48,23 @@
 .user ul li {
     margin-left: -40px;
     margin-top: 10px;
+}
+.container-logout {
+    width: 15%;
+    list-style: none;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+.container-logout a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+.container-logout:hover {
+    background-color: #fff;
+}
+.container-logout:hover a {
+    color: #255688;
 }
 .burguer-menu {
     background-color: #000000;
@@ -329,10 +343,6 @@
     }
     .nav-bar {
         display: flex;
-    }
-    .container-access {
-        width: 20%;
-        justify-content: flex-end;
     }
     .container-access .user {
         margin: 0 50px;

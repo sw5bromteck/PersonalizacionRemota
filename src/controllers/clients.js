@@ -1,10 +1,65 @@
 const Client = require('../models/Client');
 const Personalization = require('../models/Personalization');
+const User = require('../models/User');
 const valoresEdit = require("../data/valoresEdit.json");
+const bcryptjs = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
 const controller = {
+  /*
+  register: function (req, res) {
+    res.render('./users/register', { name: 'register', title : 'REGISTRARSE' });
+  },
+  processRegister: function (req, res) {
+      const errors = validationResult(req);
+
+      if (errors.isEmpty()) {
+          let userInDB = User.findByField('email', req.body.email);
+          if (userInDB) {
+              res.render('./users/register', { errors: { email: { msg: 'Este email ya está registrado' } }, old: req.body, name: 'register', title : 'REGISTRARSE' });
+          } else {
+              let userToCreate = {
+                  ...req.body,
+                  password: bcryptjs.hashSync(req.body.password, 10),
+                  avatar: req.file.filename,
+              };
+              User.create(userToCreate);
+              res.redirect('/users/login');
+          }
+      } else {
+          res.render('./users/register', { errors: errors.mapped(), old: req.body, name: 'register', title : 'REGISTRARSE' });
+      }
+  },
+  */
+ home: function (req, res) {
+  res.render('./admin/index', { name: 'home', title: 'HOME' });
+ },
+  login: function (req, res) {
+    res.render('./admin/login', { name: 'login', title: 'LOGIN' });
+  },
+  processLogin: function (req, res) {
+    let userToLogin = User.findByField('email', req.body.email);
+    if (userToLogin) {
+      // let isCorrectThisPassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+      let isCorrectThisPassword = (userToLogin.password == req.body.password) ? true : false;
+      if (isCorrectThisPassword) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 });
+        res.redirect('/admin/home');  
+      } else {
+        res.render('./admin/login', { errors: { email: { msg: 'Las credenciales son inválidas' } }, name: 'login', title : 'LOGIN' });
+      }
+    } else {
+        res.render('./admin/login', { errors: { email: { msg: 'No existe un usuario con este email' } }, old: req.body, name: 'login', title : 'LOGIN' });
+    }
+  },
+  logout: function (req, res) {
+    res.clearCookie('userEmail');
+    req.session.destroy();
+    res.redirect('/');
+  },
   clients: function (req, res) {
 		let clients = Client.findAll();
     res.render('./admin/clients', { clients, name: 'clients', title: 'CLIENTES' });
@@ -23,7 +78,7 @@ const controller = {
     fs.writeFile(`${carpetaData}/${client}.json`, JSON.stringify(newPersonalization), () => {
       Client.create(newClient);
       Personalization.personalization.create(newPersonalization);
-      res.redirect('/');
+      res.redirect('/home');
     });
   },
   edit: function (req, res) {
@@ -42,13 +97,13 @@ const controller = {
 
     controller.personalizationUpdate(req, clientFound, arrayAssets);
     Personalization.personalization.update(clientFound);
-    res.redirect('/');
+    res.redirect('/admin/home');
   },
   delete: function (req, res) {
     let clientFound = Client.findByPk(req.params.id);
     Client.delete(req.params.id);
     Personalization.personalization.delete(clientFound);
-    res.redirect('/');
+    res.redirect('/home');
   },
   verificarAssets: function (client) {
     let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;

@@ -9,6 +9,7 @@ const clientRouter = require('./src/routes/clients');
 const methodOverride =  require('method-override');
 const { post } = require('./src/routes/main');
 const cookieParser = require('cookie-parser');
+const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
 
 // const jsonServer = require('json-server');
 const fs = require('fs');
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(session({secret: 'secret', resave: false, saveUninitialized: false,}));
 app.use(cookieParser());
+app.use(userLoggedMiddleware);
 app.use(cors());
 
 app.use('/', mainRouter);
