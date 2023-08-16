@@ -69,17 +69,22 @@ const controller = {
   },
   processCreate: function (req, res) {
     let client = (req.body.company).toLowerCase();
-    let id = Client.generateId();
-    let arrayAssets = controller.verificarAssets(client);
-    let newClient = controller.createNewClient(client, req.file.filename);
-    let newPersonalization = controller.personalizationData(id, client, arrayAssets);
-    const carpetaData = path.join(__dirname, '..', 'clients');
+    let clientInDb = Client.findByField('client', client);
+    if (clientInDb) {
+      res.render('./admin/create', { errors: { client: { msg: 'El cliente ya se encuentra registrado' } }, old: req.body, name: 'create', title : 'AGREGAR' });
+    } else {
+      let id = Client.generateId();
+      let arrayAssets = controller.verificarAssets(client);
+      let newClient = controller.createNewClient(client, req.file);
+      let newPersonalization = controller.personalizationData(id, client, arrayAssets);
+      const carpetaData = path.join(__dirname, '..', 'clients');
 
-    fs.writeFile(`${carpetaData}/${client}.json`, JSON.stringify(newPersonalization), () => {
-      Client.create(newClient);
-      Personalization.personalization.create(newPersonalization);
-      res.redirect('/home');
-    });
+      fs.writeFile(`${carpetaData}/${client}.json`, JSON.stringify(newPersonalization), () => {
+        Client.create(newClient);
+        Personalization.personalization.create(newPersonalization);
+        res.redirect('/admin/home');
+      });
+    }
   },
   edit: function (req, res) {
     let personalizationFound = Client.findByPk(req.params.id);
@@ -103,7 +108,7 @@ const controller = {
     let clientFound = Client.findByPk(req.params.id);
     Client.delete(req.params.id);
     Personalization.personalization.delete(clientFound);
-    res.redirect('/home');
+    res.redirect('/admin/home');
   },
   verificarAssets: function (client) {
     let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
@@ -112,7 +117,13 @@ const controller = {
     let urlLogo = `${url}logo')`;
     return [urlSplash, urlBackground, urlLogo];
   },
-  createNewClient: function (client, image) {
+  createNewClient: function (client, clientImage) {
+    let image;
+    if (clientImage) {
+      image = clientImage.filename;
+    } else {
+      image = 'clientDefault.png';
+    }
     return {
       client,
       image,

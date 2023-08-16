@@ -15,6 +15,10 @@
                         id="company"
                         class="input-padding form-control input-border-initial"
                     >
+                    <% if (locals.errors && errors.client) { %>
+                        <p style="color: red; font-size: 12px;"><%= errors.client.msg %></p>
+                    <% } %>
+                    <p class="errorEmailLogin msg-error"></p>
                 </div>
                 <div id="container-image">
                     <label for="image">Imagen</label>
