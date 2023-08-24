@@ -32,9 +32,9 @@ const controller = {
       }
   },
   */
- home: function (req, res) {
-  res.render('./admin/index', { name: 'home', title: 'HOME' });
- },
+  home: function (req, res) {
+    res.render('./admin/index', { name: 'home', title: 'HOME' });
+  },
   login: function (req, res) {
     res.render('./admin/login', { name: 'login', title: 'LOGIN' });
   },
