@@ -4,7 +4,32 @@
 <body class="container-main">
     <%- include('../partials/headerMain.ejs') %>
     <main class="main">
-        home
+        <section class="container-products">
+            <article class="articles">
+                <a href="/admin/create">
+                    <picture>
+                        <img src="/img/clients/clientDefault.png" alt="">
+                    </picture>
+                    <div class="articles-general">
+                        <strong>
+                            Registrar Cliente
+                        </strong>
+                    </div>
+                </a>
+            </article>
+            <article class="articles">
+                <a href="/admin/clients">
+                    <picture>
+                        <img src="/img/clients/clientDefault.png" alt="">
+                    </picture>
+                    <div class="articles-general">
+                        <strong>
+                            Editar Cliente
+                        </strong>
+                    </div>
+                </a>
+            </article>
+        </section>
     </main>
     <%- include('../partials/footer.ejs') %>
 </body>
