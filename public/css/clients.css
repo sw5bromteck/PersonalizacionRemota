@@ -62,7 +62,7 @@ h3 {
     }
     .articles:hover {
         cursor: pointer;
-        box-shadow: 0px 0px 20px #255688;
+        box-shadow: 0px 0px 20px #000;
         transition-duration: 1s;
     }
 }

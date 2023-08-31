@@ -17,7 +17,7 @@
     position: sticky;
     top: 0;
     z-index: 1;
-    background-color: #255688;
+    background-color: #000;
 }
 .user ul {
     width: 40%;
@@ -64,7 +64,7 @@
     background-color: #fff;
 }
 .container-logout:hover a {
-    color: #255688;
+    color: #000;
 }
 .burguer-menu {
     background-color: #000000;
@@ -136,7 +136,7 @@
     width: 100%;
     padding: 10px;
     text-align: center;
-    background-color: #255688;
+    background-color: #000;
     color: #fff;
 }
 .derechos {
@@ -244,14 +244,14 @@
 .form form div button {
     display: block;
     margin: 0 auto;
-    background-color: #255688;
+    background-color: #000;
     color: #fff;
-    border: 1px solid #255688;
+    border: 1px solid #000;
     border-radius: 10px;
 }
 .form form div button a {
     text-decoration: none;
-    color: #255688;
+    color: #000;
 }
 .ingresar, .registrarte {
     width: 100%;
@@ -279,7 +279,7 @@
 .form form div button:hover {
     cursor: pointer;
     background-color: #fff;
-    color: #255688;
+    color: #000;
     transition-duration: 0.5s;
 }
 .form form div button:hover a {
@@ -324,7 +324,7 @@
         order: 1;
     }
     .container-social-media div:hover i {
-        color: #255688;
+        color: #000;
         background-color: #fff;
         transition-duration: 0.5s;
     }
@@ -366,7 +366,7 @@
     }
     .container-list a:hover {
         background-color: #fff;
-        color: #255688;
+        color: #000;
         transition-duration: 0.5s;
     }
     .search-bar {
