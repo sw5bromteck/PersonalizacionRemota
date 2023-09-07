@@ -8,9 +8,6 @@
 h3 {
     font-weight: lighter;
 }
-.main .container-products {
-    margin-bottom: 20px;
-}
 .main section .articles a {
     text-decoration: none;
     color: #666;
@@ -26,7 +23,7 @@ h3 {
     border-top: 1px solid #ccc;
     padding: 15px;
 }
-.articles a picture {
+.articles a picture, .articles .container-option {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +41,18 @@ h3 {
     margin-top: 10px;
     font-size: 16px;
     text-transform: uppercase;
+}
+.articles a i {
+    font-size: 100px;
+    color: #fff;
+}
+.articles .container-option:hover {
+    background-color: #fff;
+    transition-duration: 0.5s;
+}
+.articles .container-option:hover i {
+    color: #000;
+    transition-duration: 0.5s;
 }
 
 /* MEDIA QUERIES */

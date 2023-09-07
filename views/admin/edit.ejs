@@ -33,11 +33,16 @@
                     <p>Contenedor Logo</p>
                     <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
                     <br>
+                    <!-- <% positioning.forEach(p => { %>
+                        <option value="<%= p.value %>"> <%= p.name %> </option>
+                        <input type="radio" class="btn-check" name="options-base" id="option<%= p.value %>" autocomplete="off" value="<%= p.value %>" <% if (p.checked) { %>checked<% } %>>
+                        <label class="btn" for="option<%= p.value %>"><%= p.name %></label>
+                    <% }) %> -->
                     <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
                         <option value="<%= clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
                         <% positioning.forEach(p => { %>
                             <option value="<%= p.value %>"> <%= p.name %> </option>
-                        <% }) %> 
+                        <% }) %>
                     </select>
                 </div>
                 <div id="container-contenedorHoraPersonalizado" class="container-cambios">

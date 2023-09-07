@@ -122,7 +122,7 @@
 .main {
     width: 100%;
     height: auto;
-    min-height: 480px;
+    min-height: 600px;
     margin: 30px 0;
 }
 .main h3 {
@@ -304,6 +304,12 @@
 }
 .container-cambios p {
     margin-bottom: 0;
+}
+.container-options {
+    height: 600px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 /* MEDIA QUERIES */
 @media (min-width: 769px) {

@@ -4,12 +4,12 @@
 <body class="container-main">
     <%- include('../partials/headerMain.ejs') %>
     <main class="main">
-        <section class="container-products">
+        <section class="container-products container-options">
             <article class="articles">
                 <a href="/admin/create">
-                    <picture>
-                        <img src="/img/clients/clientDefault.png" alt="">
-                    </picture>
+                    <div class="container-option">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </div>
                     <div class="articles-general">
                         <strong>
                             Registrar Cliente
@@ -19,9 +19,9 @@
             </article>
             <article class="articles">
                 <a href="/admin/clients">
-                    <picture>
-                        <img src="/img/clients/clientDefault.png" alt="">
-                    </picture>
+                    <div class="container-option">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
                     <div class="articles-general">
                         <strong>
                             Editar Cliente
