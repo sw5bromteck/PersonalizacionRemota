@@ -111,10 +111,11 @@ const controller = {
     res.redirect('/admin/home');
   },
   verificarAssets: function (client) {
-    let url = `url('http://networkbroadcast.servepics.com/Clientes/${client}/assets/tv-web-${client}/version-01/`;
-    let urlSplash = `${url}splash')`;
-    let urlBackground = `${url}background')`;
-    let urlLogo = `${url}logo')`;
+    let extencion = ".png";
+    let url = `url('${process.env.URL_BASE_ASSETS}/Clientes/${client}/assets/tv-web-${client}/version-01/`;
+    let urlSplash = `${url}splash${extencion}')`;
+    let urlBackground = `${url}background${extencion}')`;
+    let urlLogo = `${url}logo${extencion}')`;
     return [urlSplash, urlBackground, urlLogo];
   },
   createNewClient: function (client, clientImage) {
