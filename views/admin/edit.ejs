@@ -7,118 +7,146 @@
         <section class="form">
             <form action="/admin/edit/<%= clientFound.id %>?_method=PUT" method="post" id="register">
                 <h3> editar </h3>
-                <div id="container-assetsPersonalizado" class="container-cambios">
-                    <p>Splash - Background - Logo</p>
-                    <label for="assetsPersonalizado">Seleccionar Assets Cliente</label>
-                    <br>
-                    <select name="assetsPersonalizado" id="assetsPersonalizado">
-                        <option value="<%= clientFound.client %>"> Seleccionar.. </option>
-                        <% clients.forEach(c => { %>
-                            <option value="<%= c.client %>"> <%= c.client %> </option>
-                        <% }) %>
-                    </select>
+                <div class="container-general-cambios">
+                    <div id="container-assetsPersonalizado" class="container-cambios">
+                        <p>Splash - Background - Logo</p>
+                        <label for="assetsPersonalizado">Seleccionar Assets Cliente</label>
+                        <br>
+                        <select name="assetsPersonalizado" id="assetsPersonalizado">
+                            <option value="<%= clientFound.client %>"> Seleccionar.. </option>
+                            <% clients.forEach(c => { %>
+                                <option value="<%= c.client %>"> <%= c.client %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div id="container-logoPersonalizado" class="container-cambios">
+                        <p>Logo</p>
+                        <label for="widthLogo">Seleccionar Tamaño Logo</label>
+                        <br>
+                        <select name="widthLogo" id="widthLogo">
+                            <option value="<%= clientFound["personalization"][".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
+                            <% size.forEach(s => { %>
+                                <option value="<%= s.value %>"> <%= s.value %> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <div id="container-contenedorLogoPersonalizado" class="container-cambios">
+                        <p>Contenedor Logo</p>
+                        <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
+                        <br>
+                        <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
+                            <option value="<%= clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
+                            <% positioning.forEach(p => { %>
+                                <option value="<%= p.value %>"> <%= p.name %> </option>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div id="container-contenedorHoraPersonalizado" class="container-cambios">
+                        <p>Contenedor Hora</p>
+                        <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
+                        <br>
+                        <select name="displayContenedorHora" id="displayContenedorHora">
+                            <option value="<%= clientFound["personalization"][".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
+                            <% visibility.forEach(v => { %>
+                                <option value="<%= v.value %>"> <%= v.name %> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <div id="container-tipografiaPersonalizado" class="container-cambios">
+                        <p>Tipografia</p>
+                        <label for="tipografia">Tipografia Letra</label>
+                        <br>
+                        <select name="tipografia" id="tipografia">
+                            <option value="<%= clientFound["personalization"][".tipografiaPersonalizado"]["font-family"]%>"> Seleccionar.. </option>
+                            <% typography.forEach(t => { %>
+                                <option value="<%= t.value %>"> <%= t.name %> </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                    <div id="container-temaPersonalizado" class="container-cambios container-color">
+                        <p>Tema</p>
+                        <div class="container-general-color">
+                            <div>
+                                <label for="colorTema">Color Tema</label>
+                            </div>
+                            <div>
+                                <input 
+                                class="input-padding form-control input-border-initial" 
+                                type="color" 
+                                name="colorTema" 
+                                id="colorTema"
+                                value="<%= clientFound["personalization"][".temaPersonalizado"]["color"] %>"
+                                >
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container-general-color">
+                            <div>
+                                <label for="backgroundColorTema">Background Tema</label>
+                            </div>
+                            <div>
+                                <input 
+                                class="input-padding form-control input-border-initial" 
+                                type="color" 
+                                name="backgroundColorTema" 
+                                id="backgroundColorTema"
+                                value="<%= clientFound["personalization"][".temaPersonalizado"]["background-color"] %>"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container-botonDeAnunciosPersonalizado" class="container-cambios container-color">
+                        <p>Boton Anuncios</p>
+                        <div class="container-general-color">
+                            <div>
+                                <label for="colorBotonDeAnuncios">Color Boton Anuncios</label>
+                            </div>
+                            <div>
+                                <input 
+                                class="input-padding form-control input-border-initial" 
+                                type="color" 
+                                name="colorBotonDeAnuncios" 
+                                id="colorBotonDeAnuncios"
+                                value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["color"] %>"
+                                >
+                            </div>
+                            </div>
+                        <br>
+                        <div class="container-general-color">
+                            <div>
+                                <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
+                            </div>
+                            <div>
+                                <input 
+                                class="input-padding form-control input-border-initial" 
+                                type="color" 
+                                name="backgroundColorBotonDeAnuncios" 
+                                id="backgroundColorBotonDeAnuncios"
+                                value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["background-color"] %>"
+                                >
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios container-color">
+                        <p>Letra Anuncios</p>
+                        <div class="container-general-color">
+                            <div>
+                                <label for="colorLetraAnuncios">Color Letra Anuncios</label>
+                            </div>
+                            <div>
+                                <input 
+                                class="input-padding form-control input-border-initial"
+                                type="color" 
+                                class="form-control" 
+                                name="colorLetraAnuncios" 
+                                id="colorLetraAnuncios" 
+                                value="<%= clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] %>"
+                                >
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="container-logoPersonalizado" class="container-cambios">
-                    <p>Logo</p>
-                    <label for="widthLogo">Seleccionar Tamaño Logo</label>
-                    <br>
-                    <select name="widthLogo" id="widthLogo">
-                        <option value="<%= clientFound["personalization"][".logoPersonalizado"]["width"] %>"> Seleccionar.. </option>
-                        <% size.forEach(s => { %>
-                            <option value="<%= s.value %>"> <%= s.value %> </option>
-                        <% }) %> 
-                    </select>
-                </div>
-                <div id="container-contenedorLogoPersonalizado" class="container-cambios">
-                    <p>Contenedor Logo</p>
-                    <label for="justifyContentContenedorLogo">Seleccionar Posicionamiento Contenedor Logo</label>
-                    <br>
-                    <!-- <% positioning.forEach(p => { %>
-                        <option value="<%= p.value %>"> <%= p.name %> </option>
-                        <input type="radio" class="btn-check" name="options-base" id="option<%= p.value %>" autocomplete="off" value="<%= p.value %>" <% if (p.checked) { %>checked<% } %>>
-                        <label class="btn" for="option<%= p.value %>"><%= p.name %></label>
-                    <% }) %> -->
-                    <select name="justifyContentContenedorLogo" id="justifyContentContenedorLogo">
-                        <option value="<%= clientFound["personalization"][".contenedorLogoPersonalizado"]["justify-content"]%>"> Seleccionar.. </option>
-                        <% positioning.forEach(p => { %>
-                            <option value="<%= p.value %>"> <%= p.name %> </option>
-                        <% }) %>
-                    </select>
-                </div>
-                <div id="container-contenedorHoraPersonalizado" class="container-cambios">
-                    <p>Contenedor Hora</p>
-                    <label for="displayContenedorHora">Seleccionar Visibilidad Contenedor Hora</label>
-                    <br>
-                    <select name="displayContenedorHora" id="displayContenedorHora">
-                        <option value="<%= clientFound["personalization"][".contenedorHoraPersonalizado"]["display"]%>"> Seleccionar.. </option>
-                        <% visibility.forEach(v => { %>
-                            <option value="<%= v.value %>"> <%= v.name %> </option>
-                        <% }) %> 
-                    </select>
-                </div>
-                <div id="container-tipografiaPersonalizado" class="container-cambios">
-                    <p>Tipografia</p>
-                    <label for="tipografia">Tipografia Letra</label>
-                    <br>
-                    <select name="tipografia" id="tipografia">
-                        <option value="<%= clientFound["personalization"][".tipografiaPersonalizado"]["font-family"]%>"> Seleccionar.. </option>
-                        <% typography.forEach(t => { %>
-                            <option value="<%= t.value %>"> <%= t.name %> </option>
-                        <% }) %> 
-                    </select>
-                </div>
-                <div id="container-temaPersonalizado" class="container-cambios">
-                    <p>Tema</p>
-                    <label for="colorTema">Color Tema</label>
-                    <input 
-                        class="input-padding form-control input-border-initial" 
-                        type="text" 
-                        name="colorTema" 
-                        id="colorTema"
-                        value="<%= clientFound["personalization"][".temaPersonalizado"]["color"] %>"
-                    >
-                    <br>
-                    <label for="backgroundColorTema">Background Tema</label>
-                    <input 
-                        class="input-padding form-control input-border-initial" 
-                        type="text" 
-                        name="backgroundColorTema" 
-                        id="backgroundColorTema"
-                        value="<%= clientFound["personalization"][".temaPersonalizado"]["background-color"] %>"
-                    >
-                </div>
-                <div id="container-botonDeAnunciosPersonalizado" class="container-cambios">
-                    <p>Boton Anuncios</p>
-                    <label for="colorBotonDeAnuncios">Color Boton Anuncios</label>
-                    <input 
-                        class="input-padding form-control input-border-initial" 
-                        type="text" 
-                        name="colorBotonDeAnuncios" 
-                        id="colorBotonDeAnuncios"
-                        value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["color"] %>"
-                    >
-                    <br>
-                    <label for="backgroundColorBotonDeAnuncios">Background Boton Anuncios</label>
-                    <input 
-                        class="input-padding form-control input-border-initial" 
-                        type="text" 
-                        name="backgroundColorBotonDeAnuncios" 
-                        id="backgroundColorBotonDeAnuncios"
-                        value="<%= clientFound["personalization"][".botonDeAnunciosPersonalizado"]["background-color"] %>"
-                    >
-                </div>
-                <div id="container-colorLetraAnunciosPersonalizado" class="container-cambios">
-                    <p>Letra Anuncios</p>
-                    <label for="colorLetraAnuncios">Color Letra Anuncios</label>
-                    <input 
-                        class="input-padding form-control input-border-initial" 
-                        type="text" 
-                        name="colorLetraAnuncios" 
-                        id="colorLetraAnuncios"
-                        value="<%= clientFound["personalization"][".colorLetraAnunciosPersonalizado"]["color"] %>"
-                    >
-                </div>
-                <div class="login edition">
+                <div class="login edition container-buttons">
                     <div class="delete">
 						<button type="submit" form="delete">eliminar</button>
                     </div>

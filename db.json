@@ -6,13 +6,13 @@
     "client": "bromteck",
     "personalization": {
      ".splashPersonalizado": {
-      "background-image": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/splash')"
+      "background-image": "url('https://www.bromteck.com/ximages/Clientes/bromteck/assets/tv-web-bromteck/version-01/splash.png')"
      },
      ".backgroundPersonalizado": {
-      "background-image": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/background')"
+      "background-image": "url('https://www.bromteck.com/ximages/Clientes/bromteck/assets/tv-web-bromteck/version-01/background.png')"
      },
      ".logoPersonalizado": {
-      "content": "url('http://networkbroadcast.servepics.com/Clientes/bromteck/assets/tv-web-bromteck/version-01/logo')",
+      "content": "url('https://www.bromteck.com/ximages/Clientes/bromteck/assets/tv-web-bromteck/version-01/logo.png')",
       "width": "20%",
       "position": "initial"
      },
@@ -34,7 +34,7 @@
       "background-color": "#000"
      },
      ".colorLetraAnunciosPersonalizado": {
-      "color": "#fff"
+      "color": "#000000"
      }
     }
    },
