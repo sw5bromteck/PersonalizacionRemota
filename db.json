@@ -54,24 +54,24 @@
       "position": "initial"
      },
      ".contenedorLogoPersonalizado": {
-      "justify-content": "start"
+      "justify-content": "center"
      },
      ".contenedorHoraPersonalizado": {
-      "display": "block"
+      "display": "none"
      },
      ".tipografiaPersonalizado": {
       "font-family": "sans-serif"
      },
      ".temaPersonalizado": {
-      "color": "#fff",
-      "background-color": "#000"
+      "color": "#5b5794",
+      "background-color": "#000000"
      },
      ".botonDeAnunciosPersonalizado": {
-      "color": "#fff",
-      "background-color": "#000"
+      "color": "#833434",
+      "background-color": "#69ceb0"
      },
      ".colorLetraAnunciosPersonalizado": {
-      "color": "#fff"
+      "color": "#000000"
      }
     }
    }
