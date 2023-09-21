@@ -57,13 +57,13 @@
       "justify-content": "center"
      },
      ".contenedorHoraPersonalizado": {
-      "display": "none"
+      "display": "block"
      },
      ".tipografiaPersonalizado": {
       "font-family": "sans-serif"
      },
      ".temaPersonalizado": {
-      "color": "#5b5794",
+      "color": "#7b5794",
       "background-color": "#000000"
      },
      ".botonDeAnunciosPersonalizado": {
@@ -71,7 +71,7 @@
       "background-color": "#69ceb0"
      },
      ".colorLetraAnunciosPersonalizado": {
-      "color": "#000000"
+      "color": "#ffffff"
      }
     }
    }
