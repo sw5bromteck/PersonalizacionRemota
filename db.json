@@ -111,6 +111,43 @@
       "color": "#ffffff"
      }
     }
+   },
+   {
+    "id": 4,
+    "client": "fotelka",
+    "personalization": {
+     ".splashPersonalizado": {
+      "background-image": "url('https://www.bromteck.com/ximages/Clientes/fotelka/assets/tv-web-fotelka/version-01/splash.png')"
+     },
+     ".backgroundPersonalizado": {
+      "background-image": "url('https://www.bromteck.com/ximages/Clientes/fotelka/assets/tv-web-fotelka/version-01/background.png')"
+     },
+     ".logoPersonalizado": {
+      "content": "url('https://www.bromteck.com/ximages/Clientes/fotelka/assets/tv-web-fotelka/version-01/logo.png')",
+      "width": "20%",
+      "position": "initial"
+     },
+     ".contenedorLogoPersonalizado": {
+      "justify-content": "start"
+     },
+     ".contenedorHoraPersonalizado": {
+      "display": "none"
+     },
+     ".tipografiaPersonalizado": {
+      "font-family": "sans-serif"
+     },
+     ".temaPersonalizado": {
+      "color": "#666060",
+      "background-color": "#b95b5b"
+     },
+     ".botonDeAnunciosPersonalizado": {
+      "color": "#ffffff",
+      "background-color": "#5d1313"
+     },
+     ".colorLetraAnunciosPersonalizado": {
+      "color": "#ffffff"
+     }
+    }
    }
   ]
  }
