@@ -51,10 +51,10 @@
      ".logoPersonalizado": {
       "content": "url('https://www.bromteck.com/ximages/Clientes/intv/assets/tv-web-intv/version-01/logo.png')",
       "width": "20%",
-      "position": "initial"
+      "position": "relative"
      },
      ".contenedorLogoPersonalizado": {
-      "justify-content": "center"
+      "justify-content": "start"
      },
      ".contenedorHoraPersonalizado": {
       "display": "block"
