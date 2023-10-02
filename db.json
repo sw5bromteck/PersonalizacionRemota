@@ -162,7 +162,7 @@
      ".logoPersonalizado": {
       "content": "url('https://www.bromteck.com/ximages/Clientes/cablenet/assets/tv-web-cablenet/version-01/logo.png')",
       "width": "20%",
-      "position": "initial"
+      "position": "relative"
      },
      ".contenedorLogoPersonalizado": {
       "justify-content": "start"
@@ -174,15 +174,15 @@
       "font-family": "sans-serif"
      },
      ".temaPersonalizado": {
-      "color": "#fff",
-      "background-color": "#000"
+      "color": "#000000",
+      "background-color": "#000000"
      },
      ".botonDeAnunciosPersonalizado": {
-      "color": "#fff",
-      "background-color": "#000"
+      "color": "#000000",
+      "background-color": "#000000"
      },
      ".colorLetraAnunciosPersonalizado": {
-      "color": "#fff"
+      "color": "#000000"
      }
     }
    }
